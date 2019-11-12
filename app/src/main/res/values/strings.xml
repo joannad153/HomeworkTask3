@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Homework Task 3</string>
+    <string name="favourites">Favourites</string>
+    <string name="search">Search</string>
+    <string name="title">Cats!</string>
+    <string name="prompt">Search your desired breed of cat</string>
+    <string name="blank">Information not available</string>
+    <string name="weight">Weight: </string>
+    <string name="temperament">Temperament: </string>
+    <string name="origin">Origin: </string>
+    <string name="lifespan">Lifespan: </string>
+    <string name="link">Wikipedia Link: </string>
+    <string name="friendliness">Dog Friendliness Level: </string>
+</resources>
