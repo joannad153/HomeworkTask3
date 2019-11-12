@@ -11,4 +11,6 @@
     <string name="lifespan">Lifespan: </string>
     <string name="link">Wikipedia Link: </string>
     <string name="friendliness">Dog Friendliness Level: </string>
+    <string name="favouritesTest">This is the favourites fragment yeet</string>
+    <string name="description">Description: </string>
 </resources>

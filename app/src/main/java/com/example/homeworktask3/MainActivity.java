@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     private void swapFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
