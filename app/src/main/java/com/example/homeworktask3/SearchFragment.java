@@ -10,9 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import com.google.android.material.textfield.TextInputEditText;
 
 
 public class SearchFragment extends Fragment {
@@ -20,6 +17,7 @@ public class SearchFragment extends Fragment {
     public Button button;
     public EditText input;
     public String inputString;
+
     public SearchFragment() {
         // Required empty public constructor
     }

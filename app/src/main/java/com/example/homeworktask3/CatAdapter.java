@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,7 +32,6 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CatViewHolder holder, int position) {
         final Cat catAtPosition = catList.get(position);
-
         holder.catNameTextView.setText(catAtPosition.getName());
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,8 +42,6 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> {
                 context.startActivity(intent);
             }
         });
-
-
     }
 
     public int getItemCount() { return catList.size(); }

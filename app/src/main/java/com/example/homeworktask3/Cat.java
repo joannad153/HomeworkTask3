@@ -12,8 +12,6 @@ public class Cat {
     private String id;
 
     private String name;
-    //TODO: find description in api
-    private String description;
     private String weight_imperial;
     private String temperament;
     private String origin;
@@ -28,10 +26,6 @@ public class Cat {
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
-
-    public String getDescription() { return description; }
-
-    public void setDescription(String description) { this.description = description; }
 
     public String getWeight_imperial() { return weight_imperial; }
 

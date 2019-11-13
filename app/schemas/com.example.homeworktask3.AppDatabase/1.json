@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ae4a3e1e60721dd3581b554d704b7baa",
+    "identityHash": "1093b9281279ae52ec0fe19b8433ccb9",
     "entities": [
       {
         "tableName": "Cat",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT, `description` TEXT, `weight_imperial` TEXT, `temperament` TEXT, `origin` TEXT, `life_span` TEXT, `dog_friendly` INTEGER NOT NULL, `wikipedia_url` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT, `weight_imperial` TEXT, `temperament` TEXT, `origin` TEXT, `life_span` TEXT, `dog_friendly` INTEGER NOT NULL, `wikipedia_url` TEXT, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -17,12 +17,6 @@
           {
             "fieldPath": "name",
             "columnName": "name",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "description",
-            "columnName": "description",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -76,7 +70,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ae4a3e1e60721dd3581b554d704b7baa')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1093b9281279ae52ec0fe19b8433ccb9')"
     ]
   }
 }

@@ -4,19 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
     private TextView nameTextView;
     private TextView weightTextView;
     private TextView temperamentTextView;
-    //private TextView descriptionTextView;
     private TextView originTextView;
     private TextView lifespanTextView;
     private TextView friendlinessTextView;
     private TextView linkTextView;
-    //private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +28,6 @@ public class DetailActivity extends AppCompatActivity {
         lifespanTextView = findViewById(R.id.lifespan);
         friendlinessTextView = findViewById(R.id.friendliness);
         linkTextView = findViewById(R.id.link);
-        //imageView = findViewById(R.id.catImage);
 
         Intent intent = getIntent();
         String catID = intent.getStringExtra("CatID");
