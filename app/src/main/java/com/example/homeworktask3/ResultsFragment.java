@@ -34,9 +34,20 @@ import java.util.Map;
 public class ResultsFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private static final String ARG_PARAM1 = "param1";
+    private String mParam1;
 
     public ResultsFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate((savedInstanceState));
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+
+        }
     }
 
     @Override
@@ -50,14 +61,13 @@ public class ResultsFragment extends Fragment {
         final CatAdapter catAdapter = new CatAdapter();
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
 
-        String url = "https://api.thecatapi.com/v1/breeds/search?q=sib";
+        String url = "https://api.thecatapi.com/v1/breeds/search?q=" + mParam1;
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
                 SearchResponse searchResponse = gson.fromJson(response, SearchResponse.class);
-
                 List<Cat> resultCats = searchResponse.getResults();
                 AppDatabase db = AppDatabase.getInstance(getContext());
                 db.catDao().insertAll(resultCats);
@@ -65,6 +75,7 @@ public class ResultsFragment extends Fragment {
                 ArrayList<Cat> catsFromDatabase = new ArrayList<Cat>(listCatsFromDatabase);
                 catAdapter.setData(catsFromDatabase);
                 recyclerView.setAdapter(catAdapter);
+                System.out.print("your connection works");
                 requestQueue.stop();
             }
         };
@@ -73,6 +84,7 @@ public class ResultsFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getContext(), "Sorry, your search request failed", Toast.LENGTH_SHORT).show();
+                System.out.print("your connection does NOT WORK");
                 requestQueue.stop();
             }
         };

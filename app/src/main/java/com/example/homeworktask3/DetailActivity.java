@@ -23,11 +23,6 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        Intent intent = getIntent();
-        String catID = intent.getStringExtra("CatID");
-        //TODO: Set up database to retrieve data from
-        Cat cat = FakeDatabase.getCatById(catID);
-
         nameTextView = findViewById(R.id.catName);
         weightTextView = findViewById(R.id.weight);
         temperamentTextView = findViewById(R.id.temperament);
@@ -37,6 +32,11 @@ public class DetailActivity extends AppCompatActivity {
         friendlinessTextView = findViewById(R.id.friendliness);
         linkTextView = findViewById(R.id.link);
         //imageView = findViewById(R.id.catImage);
+
+        Intent intent = getIntent();
+        String catID = intent.getStringExtra("CatID");
+        AppDatabase db = AppDatabase.getInstance(this);
+        Cat cat = db.catDao().findCatById(catID);
 
         nameTextView.setText(cat.getName());
         weightTextView.setText(cat.getWeight_imperial());

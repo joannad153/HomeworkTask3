@@ -41,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Helper method to change the fragment displayed in the activity. We put this here so we don't
+     * have to repeat the code every time we want to saw
+     * @param fragment: instance of the fragment to go into the slot
+     */
+
     private void swapFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

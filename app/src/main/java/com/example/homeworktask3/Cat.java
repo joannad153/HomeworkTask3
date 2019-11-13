@@ -10,8 +10,8 @@ public class Cat {
     @PrimaryKey
     @NonNull
     private String id;
-    private String name;
 
+    private String name;
     //TODO: find description in api
     private String description;
     private String weight_imperial;
