@@ -18,8 +18,8 @@ import com.google.android.material.textfield.TextInputEditText;
 public class SearchFragment extends Fragment {
 
     public Button button;
-    private EditText input;
-
+    public EditText input;
+    public String inputString;
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -29,12 +29,11 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         button = view.findViewById(R.id.searchButton);
+        input = (EditText) view.findViewById(R.id.textInput);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
-                input = view.findViewById(R.id.textInput);
-                String inputString = input.toString();
-
+                inputString = input.getText().toString();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 ResultsFragment fragment = new ResultsFragment();

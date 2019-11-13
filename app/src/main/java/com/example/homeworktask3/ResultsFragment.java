@@ -38,7 +38,7 @@ public class ResultsFragment extends Fragment {
     private String mParam1;
 
     public ResultsFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -60,15 +60,14 @@ public class ResultsFragment extends Fragment {
 
         final CatAdapter catAdapter = new CatAdapter();
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-
-        String url = "https://api.thecatapi.com/v1/breeds/search?q=" + mParam1;
+        String url = "https://api.thecatapi.com/v1/breeds";
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
-                SearchResponse searchResponse = gson.fromJson(response, SearchResponse.class);
-                List<Cat> resultCats = searchResponse.getResults();
+                Cat[] catArray = gson.fromJson(response, Cat[].class);
+                List<Cat> resultCats = Arrays.asList(catArray);
                 AppDatabase db = AppDatabase.getInstance(getContext());
                 db.catDao().insertAll(resultCats);
                 List<Cat> listCatsFromDatabase = db.catDao().getAll();
@@ -89,14 +88,14 @@ public class ResultsFragment extends Fragment {
             }
         };
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, responseListener, errorListener) {
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("X_API_KEY", "a3dc7161-1f8a-4509-9459-e6e6748e337e");
-                return params;
-            }
-        };
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, responseListener, errorListener);
+//            @Override
+//            public Map<String, String> getHeaders() {
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("X_API_KEY", "a3dc7161-1f8a-4509-9459-e6e6748e337e");
+//                return params;
+//            }
+//        };
         requestQueue.add(stringRequest);
         return view;
     }

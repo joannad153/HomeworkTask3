@@ -53,7 +53,6 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> {
     public static class CatViewHolder extends RecyclerView.ViewHolder {
         public View view;
         public TextView catNameTextView;
-        public ImageView catImageView;
 
         public CatViewHolder(View v) {
             super(v);
